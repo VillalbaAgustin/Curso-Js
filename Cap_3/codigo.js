@@ -173,7 +173,7 @@ ${celular5.infoAltaGama()}
 </br>
 `); */
 
-class App {
+/* class App {
     constructor(descarga, puntuacion, peso) {
         this.descarga = descarga;
         this.puntuacion = puntuacion;
@@ -233,4 +233,4 @@ app.desinstalar();
 app.abrir();
 document.write(`
 ${app.appInfo()}
-`);
+`); */
