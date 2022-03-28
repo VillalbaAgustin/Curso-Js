@@ -148,7 +148,7 @@ class Materia {
     }
 }
 
-const fisica = new Materia('Fisica', 'Montesino', ['F', 'chato', 'Pepe']);
+const fisica = new Materia('Fisica', 'Montesino', ['chato', 'Pepe']);
 const matematica = new Materia('Matematica', 'Ariolas', [
     'agus',
     'chato',
@@ -158,7 +158,7 @@ const quimica = new Materia('Quimica', 'Tuma', ['cofla', 'chato']);
 
 function mostrarProfesor(materia, mostrarAlumno = true) {
     document.writeln(`Materia: ${materia.nombre}<br>`);
-    document.writeln(`Profesor: ${materia.profesor}<br>`);
+    document.writeln(`Profesor: ${materia.profesor}<br><br>`);
     if (mostrarAlumno) {
         document.writeln(`Alumnes: ${materia.alumnos}<br><br>`);
     }
@@ -168,8 +168,9 @@ mostrarProfesor(fisica);
 mostrarProfesor(matematica);
 mostrarProfesor(quimica);
 
+const materias = [fisica, matematica, quimica];
+
 function clasesCofla() {
-    const materias = [fisica, matematica, quimica];
     console.table(materias);
 
     const materiasCofla = [];
@@ -191,4 +192,24 @@ function clasesCofla() {
     });
 }
 
+function inscripcion() {
+    inscrip = prompt(`A que materias deseas anotarte?`);
+    console.table(materias);
+    const materiaElegida = materias.find(
+        (materia) => materia.nombre.toLowerCase() == inscrip.toLowerCase()
+    );
+
+    if (!materiaElegida) return alert(`Materia no encontrada`);
+    if (materiaElegida.alumnos.find(alumno => alumno == 'Cofla')) return alert('Ya estas anotado gay')
+    if (materiaElegida.alumnos.length >= 3)
+        return alert('No hay cupos disponibles');
+    materiaElegida.alumnos.push(`Cofla`);
+    alert('Listo Reyyy');
+}
+
 clasesCofla();
+/* incrispcion(); */
+
+const boton = document.querySelector('#boton');
+console.log(boton);
+boton.addEventListener('click', inscripcion);
